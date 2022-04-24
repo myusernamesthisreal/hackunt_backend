@@ -15,20 +15,6 @@ api = Api(app)
 load_dotenv()
 API_KEY = os.getenv("API_KEY")
 
-# deprecated google maps API 
-# @app.route("/get_speed_limit")
-# def speed_limit(latitudes = [], longitudes = []): 
-#     key = 'AIzaSyB3MhdUlM3OuRg218wsWZjwRPkPUd9mWC4'
-#     if not latitudes or not longitudes: 
-#         path = '38.75807927603043,-9.03741754643809|38.6896537,-9.1770515|41.1399289,-8.6094075' 
-#     else: 
-#         path = ""
-#     #print('https://roads.googleapis.com/v1/speedLimits?path={path}&key={API_KEY}')
-#     #r = requests.get('https://roads.googleapis.com/v1/speedLimits?path={path}&key={API_KEY}') 
-#     r = requests.get(f'https://roads.googleapis.com/v1/speedLimits?path={path}&key={key}') 
-#     #r = requests.get('https://roads.googleapis.com/v1/speedLimits?path={path}&key=AIzaSyB3MhdUlM3OuRg218wsWZjwRPkPUd9mWC4') 
-#     return r.text 
-
 @app.route("/speedlimit/<latitude>/<longitude>")
 def speed_limit(latitude = "33.2545787", longitude = "-97.1532125"): 
     try: 
@@ -43,8 +29,6 @@ def speed_limit(latitude = "33.2545787", longitude = "-97.1532125"):
         return {'status': 'success', 'speedLimit': max_speed}
     except: 
         return {'status': 'failure'}
-
-#api.add_resource(speedlimit, '/tiles/<uuid>')
 
 if __name__ == '__main__': 
     app.run()
