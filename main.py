@@ -14,6 +14,7 @@ api = Api(app)
 load_dotenv()
 API_KEY = os.getenv("API_KEY")
 
+# deprecated google maps API 
 # @app.route("/get_speed_limit")
 # def speed_limit(latitudes = [], longitudes = []): 
 #     key = 'AIzaSyB3MhdUlM3OuRg218wsWZjwRPkPUd9mWC4'
